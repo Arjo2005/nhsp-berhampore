@@ -93,3 +93,56 @@ footer { background: #111; color: #ccc; padding: 60px 10% 20px; }
 
 .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 2000; display: flex; align-items: center; }
 .wa-float i { font-size: 22px; margin-right: 8px; }
+/* --- MOBILE RESPONSIVE FIXES --- */
+@media screen and (max-width: 768px) {
+    /* Reduce the size of the main Arkadelphia title */
+    .hero h1 {
+        font-size: 2.2rem !important; 
+        line-height: 1.1;
+        margin-bottom: 10px;
+    }
+
+    /* Shrink the "SINCE 2014" and tagline */
+    .est {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    /* Scale down the background logo so it doesn't overlap text too much */
+    .hero-logo-fade {
+        width: 250px;
+    }
+
+    /* Make buttons fit side-by-side or stack neatly */
+    .btn {
+        padding: 12px 20px;
+        font-size: 12px;
+        width: 90%; /* Stack buttons for easier clicking on mobile */
+        margin: 5px auto;
+    }
+
+    /* Shrink the header logo and title so they don't squash the menu */
+    .nav-logo {
+        height: 40px;
+        width: 40px;
+    }
+
+    .main-name {
+        font-size: 16px;
+    }
+
+    /* Adjust the Specialties section for a single column on small screens */
+    .grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+}
