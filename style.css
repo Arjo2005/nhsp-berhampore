@@ -1,5 +1,5 @@
 /* 1. LOAD CUSTOM FONTS */
-@font-face { font-family: 'Arkadelphia'; src: url('fonts/ArkadelphiaDemoRegular.ttf') format('truetype'); }
+@font-face { font-family: 'Arkadelphia'; src: url('fonts/ArkadelphiaRegular.ttf') format('truetype'); }
 @font-face { font-family: 'BengaliCustom'; src: url('fonts/BengaliFont.ttf') format('truetype'); }
 
 /* 2. CORE SETUP */
