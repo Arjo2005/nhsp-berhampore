@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Horizon Study Point | NHSP Berhampore</title>
+    <title>New Horizon Study Point | NHSP</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,77 +12,84 @@
 
     <div class="notif-wrapper">
         <div class="notif-bar purple">
-            <span class="tag">ENG</span>
-            <marquee>Free Basic Spoken English Class (First 3 Months) | Admissions Open!</marquee>
+            <marquee>Admission Open for 2026 Batch | Free Basic Spoken English Class (First 3 Months)!</marquee>
         </div>
         <div class="notif-bar orange">
-            <span class="tag">BEN</span>
             <marquee>নতুন ব্যাচে ভর্তি চলছে! সরাসরি ডেমো ক্লাসের সু-ব্যবস্থা (প্রথম দুটি ক্লাস)।</marquee>
         </div>
     </div>
 
     <header>
         <nav class="nav-container">
-            <div class="logo-group">
+            <div class="logo-area">
                 <img src="images/logo.png" alt="NHSP Logo" class="nav-logo">
                 <div class="brand-text">
-                    <span class="main-name">NEW HORIZON STUDY POINT</span>
+                    <span class="main-name">NEW HORIZON</span>
+                    <span class="sub-name">STUDY POINT</span>
                 </div>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#updates">UPDATES</a></li>
-                <li><a href="#specs">SPECIALTIES</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+
+            <div class="menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i> <span>MENU</span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#admission"><i class="fas fa-user-plus"></i> ADMISSION</a></li>
+                <li><a href="#academics" onclick="toggleSubMenu('acad-sub')"><i class="fas fa-book"></i> ACADEMICS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="sub-menu" id="acad-sub">
+                        <li><a href="#english">ENGLISH (VI - X)</a></li>
+                        <li><a href="#bengali">BENGALI (VI - X)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#free-items"><i class="fas fa-gift"></i> FREE ITEMS</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> ABOUT US</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="home" class="hero">
-            <div class="hero-bg-logo-container">
+            <div class="hero-bg-logo-wrapper">
                 <img src="images/logo.png" alt="NHSP Watermark" class="hero-logo-fade">
             </div>
             <div class="hero-inner">
-                <h3 class="est">SINCE 2024</h3>
+                <h3 class="est">SINCE 2014</h3>
                 <h1>NEW HORIZON STUDY POINT</h1>
                 <p class="tagline">"Quality education for a brighter future!!!"</p>
                 <div class="hero-btns">
                     <button class="btn red">START SCHOLARSHIP QUIZ</button>
-                    <button class="btn white">FREE DEMO CLASS</button>
+                    <button class="btn white">ADMISSION FOR 2026 BATCH</button>
                 </div>
             </div>
         </section>
 
-        <section id="updates" class="notif-section">
-            <div class="notif-container">
-                <div class="notif-header">
-                    <i class="fas fa-bullhorn"></i>
-                    <h2>LATEST UPDATES / WHAT'S NEW</h2>
-                </div>
-                <div class="notif-list">
-                    <div class="notif-item">
-                        <span class="notif-date">08 Apr 2026</span>
-                        <p>Class 10 English Mock Test results are now available at the Berhampore center.</p>
-                    </div>
-                    <div class="notif-item">
-                        <span class="notif-date">07 Apr 2026</span>
-                        <p>New session admissions starting for Hariharpara and Gangadhari branches.</p>
-                    </div>
-                </div>
-                <button class="view-all">View All Updates</button>
+        <section id="admission" class="content-sec">
+            <h2>Admission Portal</h2>
+            <p>Welcome to the 2026 Admission Portal. Please fill out the form below to begin.</p>
+            </section>
+
+        <section id="academics" class="content-sec gray-bg">
+            <h2>Academics</h2>
+            <div class="subject-tabs">
+                <button class="tab-btn active">English</button>
+                <button class="tab-btn">Bengali</button>
             </div>
+            <div class="class-grid">
+                <div class="class-card">Class VI</div>
+                <div class="class-card">Class VII</div>
+                <div class="class-card">Class VIII</div>
+                <div class="class-card">Class IX</div>
+                <div class="class-card">Class X</div>
+            </div>
+            <p class="note">Class-wise notes and sub-topics will be updated soon.</p>
         </section>
 
-        <section id="specs" class="specs">
-            <h2 class="title">আমাদের বিশেষত্ব</h2>
-            <div class="grid">
-                <div class="card"><i class="fas fa-brain"></i><p>মনোবৈজ্ঞানিক পদ্ধতিতে পঠনপাঠন</p></div>
-                <div class="card"><i class="fas fa-edit"></i><p>নিয়মিত প্র্যাকটিস ও মকটেস্ট</p></div>
-                <div class="card"><i class="fas fa-users"></i><p>অভিভাবকদের সঙ্গে নিয়মিত সাক্ষাৎ</p></div>
-                <div class="card"><i class="fas fa-star"></i><p>দুর্বল ছাত্রছাত্রীদের জন্য বিশেষ ক্লাস</p></div>
-                <div class="card"><i class="fas fa-wallet"></i><p>স্বল্প খরচে সঠিক মানের শিক্ষা</p></div>
-                <div class="card"><i class="fas fa-microphone-alt"></i><p>ফ্রি স্পোকেন ইংলিশ ক্লাস</p></div>
+        <section id="free-items" class="content-sec">
+            <h2>Free Items & Mock Tests</h2>
+            <div class="mock-box">
+                <i class="fas fa-edit"></i>
+                <p>Access our free Mock Test series here.</p>
+                <button class="btn red">GO TO MOCK TEST</button>
             </div>
         </section>
     </main>
@@ -91,22 +98,31 @@
         <div class="foot-container">
             <div class="foot-col">
                 <h3>LOCATIONS</h3>
-                <p><i class="fas fa-map-marker-alt"></i> BERHAMPORE</p>
-                <p><i class="fas fa-map-marker-alt"></i> HARIHARPARA</p>
-                <p><i class="fas fa-map-marker-alt"></i> GANGADHARI</p>
+                <p>BERHAMPORE | HARIHARPARA | GANGADHARI</p>
             </div>
             <div class="foot-col">
                 <h3>CONTACT</h3>
                 <p>Arnab Sir: +91 76799 64503</p>
-                <p>Arjo Sir: +91 89459 86254</p>
+                <p>Arjo Sir: +91 62950 69975</p>
             </div>
         </div>
-        <div class="copy">© 2014-2026 New Horizon Study Point. All Rights Reserved.</div>
     </footer>
 
-    <a href="https://wa.me/917679964503" class="wa-float" target="_blank">
-        <i class="fab fa-whatsapp"></i><span>Chat with Us</span>
-    </a>
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("navLinks");
+            nav.classList.toggle("active");
+        }
+
+        function toggleSubMenu(id) {
+            var sub = document.getElementById(id);
+            if (sub.style.display === "block") {
+                sub.style.display = "none";
+            } else {
+                sub.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 </html>
