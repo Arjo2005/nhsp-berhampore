@@ -1,128 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Horizon Study Point | NHSP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | NHSP</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
-    <div class="notif-wrapper">
-        <div class="notif-bar purple">
-            <marquee>Admission Open for 2026 Batch | Free Basic Spoken English Class (First 3 Months)!</marquee>
-        </div>
-        <div class="notif-bar orange">
-            <marquee>নতুন ব্যাচে ভর্তি চলছে! সরাসরি ডেমো ক্লাসের সু-ব্যবস্থা (প্রথম দুটি ক্লাস)।</marquee>
-        </div>
-    </div>
+    <div class="notif-bar purple"><marquee>Admission Open for 2026 Batch | Free Spoken English Class!</marquee></div>
+    <div class="notif-bar orange"><marquee style="font-family:'BengaliCustom';">নতুন ব্যাচে ভর্তি চলছে!</marquee></div>
 
     <header>
         <nav class="nav-container">
-            <div class="logo-area">
-                <img src="images/logo.png" alt="NHSP Logo" class="nav-logo">
-                <div class="brand-text">
-                    <span class="main-name">NEW HORIZON</span>
-                    <span class="sub-name">STUDY POINT</span>
-                </div>
+            <div class="logo-group">
+                <img src="images/logo.png" class="nav-logo">
+                <h1 class="single-line-title">NEW HORIZON STUDY POINT</h1>
             </div>
-
-            <div class="menu-btn" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i> <span>MENU</span>
-            </div>
-
+            <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#admission"><i class="fas fa-user-plus"></i> ADMISSION</a></li>
-                <li><a href="#academics" onclick="toggleSubMenu('acad-sub')"><i class="fas fa-book"></i> ACADEMICS <i class="fas fa-chevron-down"></i></a>
-                    <ul class="sub-menu" id="acad-sub">
-                        <li><a href="#english">ENGLISH (VI - X)</a></li>
-                        <li><a href="#bengali">BENGALI (VI - X)</a></li>
-                    </ul>
-                </li>
-                <li><a href="#free-items"><i class="fas fa-gift"></i> FREE ITEMS</a></li>
-                <li><a href="#about"><i class="fas fa-info-circle"></i> ABOUT US</a></li>
+                <li><a href="admission.html">ADMISSION</a></li>
+                <li><a href="academics.html">ACADEMICS</a></li>
+                <li><a href="free-items.html">FREE ITEMS</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-bg-logo-wrapper">
-                <img src="images/logo.png" alt="NHSP Watermark" class="hero-logo-fade">
-            </div>
-            <div class="hero-inner">
-                <h3 class="est">SINCE 2014</h3>
-                <h1>NEW HORIZON STUDY POINT</h1>
-                <p class="tagline">"Quality education for a brighter future!!!"</p>
-                <div class="hero-btns">
-                    <button class="btn red">START SCHOLARSHIP QUIZ</button>
-                    <button class="btn white">ADMISSION FOR 2026 BATCH</button>
-                </div>
-            </div>
-        </section>
-
-        <section id="admission" class="content-sec">
-            <h2>Admission Portal</h2>
-            <p>Welcome to the 2026 Admission Portal. Please fill out the form below to begin.</p>
-            </section>
-
-        <section id="academics" class="content-sec gray-bg">
-            <h2>Academics</h2>
-            <div class="subject-tabs">
-                <button class="tab-btn active">English</button>
-                <button class="tab-btn">Bengali</button>
-            </div>
-            <div class="class-grid">
-                <div class="class-card">Class VI</div>
-                <div class="class-card">Class VII</div>
-                <div class="class-card">Class VIII</div>
-                <div class="class-card">Class IX</div>
-                <div class="class-card">Class X</div>
-            </div>
-            <p class="note">Class-wise notes and sub-topics will be updated soon.</p>
-        </section>
-
-        <section id="free-items" class="content-sec">
-            <h2>Free Items & Mock Tests</h2>
-            <div class="mock-box">
-                <i class="fas fa-edit"></i>
-                <p>Access our free Mock Test series here.</p>
-                <button class="btn red">GO TO MOCK TEST</button>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contact">
-        <div class="foot-container">
-            <div class="foot-col">
-                <h3>LOCATIONS</h3>
-                <p>BERHAMPORE | HARIHARPARA | GANGADHARI</p>
-            </div>
-            <div class="foot-col">
-                <h3>CONTACT</h3>
-                <p>Arnab Sir: +91 76799 64503</p>
-                <p>Arjo Sir: +91 62950 69975</p>
+    <section class="hero">
+        <img src="images/logo.png" class="hero-logo-fade">
+        <div class="hero-inner">
+            <h3 class="est">SINCE 2014</h3>
+            <h1>NEW HORIZON</h1>
+            <p class="tagline">"QUALITY EDUCATION FOR A BRIGHTER FUTURE!!!"</p>
+            <div class="hero-btns">
+                <a href="free-items.html" class="btn red">START SCHOLARSHIP QUIZ</a>
+                <a href="admission.html" class="btn white">ADMISSION FOR 2026 BATCH</a>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        function toggleMenu() {
-            var nav = document.getElementById("navLinks");
-            nav.classList.toggle("active");
-        }
-
-        function toggleSubMenu(id) {
-            var sub = document.getElementById(id);
-            if (sub.style.display === "block") {
-                sub.style.display = "none";
-            } else {
-                sub.style.display = "block";
-            }
-        }
-    </script>
-
+    <a href="https://wa.me/917679964503" class="wa-float"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <script>function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }</script>
 </body>
 </html>

@@ -1,65 +1,104 @@
 /* 1. FONTS */
-@font-face { font-family: 'Arkadelphia'; src: url('fonts/ArkadelphiaDemoRegular.ttf') format('truetype'); }
-@font-face { font-family: 'BengaliCustom'; src: url('fonts/BengaliFont.ttf') format('truetype'); }
+@font-face { font-family: 'Arkadelphia'; src: url('fonts/ArkadelphiaDemoRegular.ttf'); }
+@font-face { font-family: 'BengaliCustom'; src: url('fonts/BengaliFont.ttf'); }
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
 
+/* 2. CORE SETUP */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Poppins', sans-serif; background: #fff; color: #333; overflow-x: hidden; }
 
-h1, .main-name { font-family: 'Arkadelphia', serif; text-transform: uppercase; }
-marquee, .content-sec h2 { font-family: 'BengaliCustom', 'Poppins', sans-serif; }
+/* 3. CINZEL NUMBERS RULE */
+/* This forces any text with numbers to use Cinzel for that classical look */
+.cinzel-text, .est, .tagline, .btn, .class-card h3, .notif-bar, .single-line-title {
+    font-family: 'Cinzel', serif !important;
+}
+/* Apply Poppins/Arkadelphia back to letters if needed, but keep numbers Cinzel */
+.single-line-title { font-family: 'Arkadelphia', serif !important; letter-spacing: 1px; }
 
-/* 2. TOP BARS */
-.notif-bar { padding: 10px; color: #fff; font-size: 14px; font-weight: 600; text-align: center; }
+/* 4. BALANCED HEADER */
+header { 
+    background: #00838f; 
+    color: #fff; 
+    padding: 12px 15px; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.logo-group {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+}
+.nav-logo {
+    height: 42px;
+    width: 42px;
+    background: #fff;
+    border-radius: 50%;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+.single-line-title {
+    font-size: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    padding-left: 15px;
+    flex-shrink: 0;
+}
+
+/* 5. MENU & HERO */
+.nav-links { 
+    display: none; position: absolute; top: 100%; left: 0; width: 100%; 
+    background: #006064; list-style: none; z-index: 999;
+}
+.nav-links.active { display: block; }
+.nav-links a { display: block; padding: 15px 25px; color: #fff; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+.hero { 
+    background: linear-gradient(135deg, #00838f, #004d40); 
+    min-height: 65vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    color: #fff; 
+    position: relative; 
+    padding: 20px;
+}
+.hero-logo-fade { width: 280px; opacity: 0.1; border-radius: 50%; position: absolute; }
+.hero-inner { z-index: 1; }
+.hero h1 { font-family: 'Arkadelphia'; font-size: 3rem; margin-bottom: 10px; }
+
+/* 6. COMPONENTS */
+.notif-bar { padding: 8px; color: #fff; font-size: 13px; text-align: center; }
 .notif-bar.purple { background: #673ab7; border-bottom: 1px solid #fff; }
 .notif-bar.orange { background: #ff9800; }
-
-/* 3. HEADER & DROPDOWN MENU */
-header { background: #00838f; color: #fff; padding: 15px 5%; position: sticky; top: 0; z-index: 1000; }
-.nav-container { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; align-items: flex-start; }
-
-.logo-area { display: flex; align-items: center; margin-bottom: 10px; }
-.nav-logo { height: 50px; width: 50px; background: #fff; border-radius: 50%; margin-right: 12px; }
-.main-name { font-size: 22px; letter-spacing: 1px; }
-.sub-name { font-size: 10px; opacity: 0.8; letter-spacing: 1.5px; }
-
-/* The 3-Line Button */
-.menu-btn { cursor: pointer; display: flex; align-items: center; background: rgba(0,0,0,0.2); padding: 8px 15px; border-radius: 5px; font-size: 14px; font-weight: 600; }
-.menu-btn i { margin-right: 10px; font-size: 18px; }
-
-/* The Dropdown List (Drishti IAS Style) */
-.nav-links { list-style: none; width: 100%; display: none; background: #006064; margin-top: 10px; border-radius: 8px; overflow: hidden; }
-.nav-links.active { display: block; }
-.nav-links li { border-bottom: 1px solid rgba(255,255,255,0.1); }
-.nav-links a { display: block; padding: 15px 20px; color: #fff; text-decoration: none; font-size: 15px; font-weight: 600; }
-.nav-links a:hover { background: #00838f; }
-
-.sub-menu { display: none; background: #004d40; list-style: none; padding-left: 20px; }
-.sub-menu a { font-size: 13px; color: #ffeb3b; }
-
-/* 4. HERO SECTION */
-.hero { background: linear-gradient(135deg, #00838f 0%, #004d40 100%); height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative; }
-.hero-logo-fade { width: 400px; opacity: 0.12; border-radius: 50%; box-shadow: 0 0 100px rgba(255,255,255,0.15); }
-.hero-inner { z-index: 1; }
-.hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-.tagline { font-size: 1.4rem; color: #ffeb3b; margin-bottom: 30px; }
-
-.btn { padding: 15px 30px; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; margin: 8px; font-size: 14px; }
+.btn { padding: 14px 28px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; margin: 10px; display: inline-block; text-decoration: none; font-size: 13px; }
 .btn.red { background: #d32f2f; color: #fff; }
 .btn.white { background: #fff; color: #00838f; }
 
-/* 5. CONTENT SECTIONS */
-.content-sec { padding: 80px 10%; text-align: center; }
-.content-sec h2 { font-size: 2.2rem; color: #006064; margin-bottom: 20px; }
-.gray-bg { background: #f9f9f9; }
+.section-padding { padding: 60px 10%; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.card { background: #fff; padding: 30px; border-radius: 12px; border-bottom: 4px solid #00acc1; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
-.class-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin: 30px 0; }
-.class-card { background: #fff; padding: 20px; border: 2px solid #00acc1; border-radius: 10px; font-weight: 600; color: #006064; }
-
-/* 6. MOBILE FIXES */
-@media screen and (max-width: 768px) {
-    .hero h1 { font-size: 2rem; }
-    .hero-logo-fade { width: 250px; }
-    .btn { width: 95%; margin: 8px auto; display: block; }
+/* 7. MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+    .single-line-title { font-size: 14px; }
+    .hero h1 { font-size: 2.2rem; }
+    .btn { width: 90%; margin: 8px auto; display: block; }
 }
 
-footer { background: #111; color: #ccc; padding: 40px 10%; text-align: center; font-size: 13px; }
+.wa-float { position: fixed; bottom: 25px; right: 20px; background: #25d366; color: #fff; padding: 12px 22px; border-radius: 50px; text-decoration: none; font-weight: 700; z-index: 2000; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
