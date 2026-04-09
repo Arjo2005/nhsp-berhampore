@@ -1,100 +1,63 @@
-/* 1. FONTS */
-@font-face { font-family: 'Arkadelphia'; src: url('fonts/ArkadelphiaDemoRegular.ttf'); }
-@font-face { font-family: 'BengaliCustom'; src: url('fonts/BengaliFont.ttf'); }
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600;700&display=swap');
+/* 1. LOAD CUSTOM FONTS */
+@font-face { font-family: 'Arkadelphia'; src: url('fonts/ArkadelphiaDemoRegular.ttf') format('truetype'); }
+@font-face { font-family: 'BengaliCustom'; src: url('fonts/BengaliFont.ttf') format('truetype'); }
 
-/* 2. RESET */
+/* 2. CORE SETUP */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Poppins', sans-serif; background: #fff; color: #333; overflow-x: hidden; }
+body { font-family: 'Poppins', sans-serif; background: #fff; color: #333; overflow-x: hidden; line-height: 1.6; }
 
-/* 3. THE LIVE MOVING BOX (SLIDING ANIMATION) */
-.live-box {
-    background: #d32f2f;
-    color: #fff;
-    padding: 12px;
-    font-weight: 700;
-    font-size: 14px;
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    border-bottom: 3px solid #ffeb3b;
-}
-.live-box span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: marquee 15s linear infinite;
-}
-@keyframes marquee {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
-}
+/* 3. HEADER & SINGLE LINE TITLE */
+header { background: #00838f; color: #fff; padding: 15px 5%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+.nav-container { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
 
-/* 4. HEADER */
-header { background: #00838f; color: #fff; padding: 12px 5%; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #006064; }
-.nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1300px; margin: 0 auto; }
-.logo-area { display: flex; align-items: center; text-decoration: none; color: white; }
-.nav-logo { height: 42px; width: 42px; background: #fff; border-radius: 50%; margin-right: 12px; }
-.single-line-title { font-family: 'Arkadelphia', serif; font-size: 15px; letter-spacing: 0.5px; white-space: nowrap; }
+.logo-brand-row { display: flex; align-items: center; width: 100%; justify-content: center; margin-bottom: 10px; }
+.nav-logo { height: 45px; width: 45px; background: #fff; border-radius: 50%; margin-right: 12px; object-fit: contain; flex-shrink: 0; }
+.single-line-title { font-family: 'Arkadelphia', serif; font-size: 18px; white-space: nowrap; letter-spacing: 1px; text-transform: uppercase; }
 
-/* 5. HERO SECTION & WATERMARK */
-.hero { 
-    background: #00838f; 
-    background: linear-gradient(135deg, #00838f, #004d40);
-    height: 70vh; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    text-align: center; 
-    color: #fff; 
-    position: relative;
-    overflow: hidden;
-}
-/* THE LOGO WATERMARK FIX */
-.hero-watermark {
-    position: absolute;
-    width: 350px;
-    opacity: 0.08;
-    z-index: 0;
-    pointer-events: none;
-}
-.hero-inner { z-index: 1; }
-.est { font-family: 'Cinzel', serif; color: #ffeb3b; letter-spacing: 4px; font-size: 1.2rem; margin-bottom: 10px; }
-.hero-title { font-family: 'Arkadelphia', serif; font-size: 3.2rem; line-height: 1.1; margin-bottom: 20px; }
-.tagline { font-family: 'Poppins', sans-serif; font-weight: 300; letter-spacing: 1px; color: #e0f2f1; margin-bottom: 35px; }
+/* 3-Line Menu Button */
+.menu-toggle { font-size: 26px; cursor: pointer; color: #fff; transition: 0.3s; padding: 5px; }
 
-/* 6. FLAT BUTTONS */
-.btn { 
-    padding: 15px 35px; border-radius: 0px; border: none; font-weight: 700; 
-    text-transform: uppercase; cursor: pointer; margin: 8px; font-size: 13px; 
-    display: inline-block; text-decoration: none; transition: 0.2s;
-}
-.btn.red { background: #d32f2f; color: #fff; border-bottom: 3px solid #b71c1c; }
-.btn.white { background: #fff; color: #00838f; border-bottom: 3px solid #cfd8dc; }
-
-/* 7. BENGALI SPECIALTIES (আমাদের বিশেষত্ব) */
-.section-header { padding: 60px 10% 20px; text-align: center; background: #f4f4f4; }
-.section-title-bn { font-family: 'BengaliCustom', sans-serif; font-size: 2.8rem; color: #006064; margin-bottom: 30px; }
-.specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 10% 60px; background: #f4f4f4; }
-.spec-card { background: #fff; padding: 30px; border-left: 6px solid #00838f; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; }
-.spec-card i { font-size: 2rem; color: #00838f; margin-bottom: 15px; }
-.spec-card p { font-family: 'BengaliCustom', sans-serif; font-size: 1.3rem; color: #333; }
-
-/* 8. ACADEMIC PAGES (NUMBERS) */
-.academic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; padding: 40px 10%; }
-.class-card { background: #fff; border: 1px solid #00838f; padding: 25px; text-align: center; transition: 0.3s; }
-.class-card h3 { font-family: 'Cinzel', serif; font-size: 1.5rem; color: #00838f; }
-
-/* 9. NAVIGATION LOGIC */
-.menu-toggle { font-size: 24px; cursor: pointer; }
-.nav-links { display: none; background: #006064; width: 100%; position: absolute; top: 100%; left: 0; list-style: none; }
+/* Dropdown Menu Links */
+.nav-links { list-style: none; width: 100%; display: none; background: #006064; border-radius: 8px; margin-top: 10px; }
 .nav-links.active { display: block; }
-.nav-links a { display: block; padding: 18px 25px; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.15); font-weight: 600; }
+.nav-links li { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.nav-links a { display: block; padding: 15px 20px; color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; }
+.nav-links a:hover { background: #00838f; }
 
-/* 10. WHATSAPP */
-.wa-float { position: fixed; bottom: 25px; right: 25px; background: #25d366; color: #fff; padding: 14px 25px; text-decoration: none; font-weight: 700; z-index: 2000; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+/* 4. MARQUEE / NOTIFICATIONS */
+.notif-bar { padding: 8px; color: #fff; font-size: 13px; font-weight: 600; }
+.notif-bar.purple { background: #673ab7; border-bottom: 1px solid #fff; }
+.notif-bar.orange { background: #ff9800; }
 
-@media (max-width: 600px) {
-    .hero-title { font-size: 2.2rem; }
-    .single-line-title { font-size: 13px; }
-    .btn { width: 90%; display: block; margin: 8px auto; }
+/* 5. HERO & CONTENT SECTIONS */
+.hero { background: linear-gradient(135deg, #00838f 0%, #004d40 100%); min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative; padding: 40px 20px; }
+.hero-logo-fade { position: absolute; width: 300px; opacity: 0.12; border-radius: 50%; box-shadow: 0 0 80px rgba(255,255,255,0.2); z-index: 0; }
+.hero-inner { z-index: 1; }
+.hero h1 { font-family: 'Arkadelphia'; font-size: 3rem; margin-bottom: 15px; }
+.tagline { font-size: 1.2rem; color: #ffeb3b; font-style: italic; margin-bottom: 30px; }
+
+.section-padding { padding: 60px 8%; text-align: center; }
+.section-title { font-family: 'Arkadelphia'; color: #00838f; margin-bottom: 40px; font-size: 2rem; }
+.bengali-font { font-family: 'BengaliCustom', sans-serif; }
+
+/* 6. BUTTONS */
+.btn { padding: 14px 28px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; margin: 10px; font-size: 14px; transition: 0.3s; display: inline-block; text-decoration: none; }
+.btn.red { background: #d32f2f; color: #fff; }
+.btn.white { background: #fff; color: #00838f; border: 1px solid #00838f; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+/* 7. WHATSAPP FLOATING */
+.wa-float { position: fixed; bottom: 30px; right: 20px; background: #25d366; color: #fff; padding: 12px 22px; border-radius: 50px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 2000; display: flex; align-items: center; }
+.wa-float i { font-size: 22px; margin-right: 10px; }
+
+/* 8. GRID & CARDS */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-bottom: 4px solid #00acc1; }
+.card i { font-size: 2.5rem; color: #00acc1; margin-bottom: 15px; }
+
+/* 9. MOBILE RESPONSIVE */
+@media screen and (max-width: 600px) {
+    .single-line-title { font-size: 13px; letter-spacing: 0.5px; }
+    .hero h1 { font-size: 2rem; }
+    .btn { width: 90%; margin: 8px auto; }
 }
