@@ -25,7 +25,7 @@ header { background: #00838f; color: #fff; padding: 15px 5%; position: sticky; t
 .nav-links a:hover { background: #00838f; }
 
 /* 4. MARQUEE / NOTIFICATIONS */
-.notif-bar { padding: 8px; color: #fff; font-size: 13px; font-weight: 600; }
+.notif-bar { padding: 5px; color: #fff; font-size: 18px; font-weight: 100; }
 .notif-bar.purple { background: #673ab7; border-bottom: 1px solid #fff; }
 .notif-bar.orange { background: #ff9800; }
 
@@ -46,6 +46,19 @@ header { background: #00838f; color: #fff; padding: 15px 5%; position: sticky; t
 .btn.white { background: #fff; color: #00838f; border: 1px solid #00838f; }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
+/* Mixing Color Gradient Button (Web3Forms Style) */
+.btn-gradient {
+    background: linear-gradient(90deg, #ff4b91 0%, #ff7676 100%);
+    color: #fff;
+    border: none;
+    transition: 0.4s ease;
+}
+.btn-gradient:hover {
+    background: linear-gradient(90deg, #ff7676 0%, #ff4b91 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 75, 145, 0.4);
+}
+
 /* 7. WHATSAPP FLOATING */
 .wa-float { position: fixed; bottom: 30px; right: 20px; background: #25d366; color: #fff; padding: 12px 22px; border-radius: 50px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 2000; display: flex; align-items: center; }
 .wa-float i { font-size: 22px; margin-right: 10px; }
@@ -55,10 +68,10 @@ header { background: #00838f; color: #fff; padding: 15px 5%; position: sticky; t
 .card { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-bottom: 4px solid #00acc1; }
 .card i { font-size: 2.5rem; color: #00acc1; margin-bottom: 15px; }
 
-/* 9. NEW: ENQUIRY & CONTACT SECTION STYLES */
+/* 9. ENQUIRY & CONTACT SECTION STYLES */
 .enquiry-float {
     position: fixed; bottom: 90px; right: 20px;
-    background: #d32f2f; color: #fff;
+    background: #d32f6e; color: #fff;
     padding: 12px 20px; border-radius: 50px;
     font-weight: 700; cursor: pointer;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1500;
@@ -76,7 +89,7 @@ header { background: #00838f; color: #fff; padding: 15px 5%; position: sticky; t
     width: 90%; max-width: 350px; position: relative;
 }
 .enquiry-content h3 { color: #00838f; margin-bottom: 15px; text-align: center; }
-.enquiry-content input {
+.enquiry-content input, .enquiry-content select {
     width: 100%; padding: 12px; margin: 8px 0;
     border: 1px solid #ccc; border-radius: 8px; font-family: 'Poppins', sans-serif;
 }
@@ -86,7 +99,20 @@ header { background: #00838f; color: #fff; padding: 15px 5%; position: sticky; t
 }
 .contact-info-section { padding: 60px 8%; background: #f9f9f9; text-align: center; }
 
-/* 10. MOBILE RESPONSIVE */
+/* 10. ACADEMIC SECTION ENHANCEMENTS */
+.academic-card { transition: 0.4s; border: none; border-top: 4px solid #00838f; padding: 40px 20px; }
+.academic-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.card-icon-circle {
+    width: 70px; height: 70px; background: #e0f2f1; color: #00838f;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; font-size: 1.8rem;
+}
+.class-badge {
+    display: inline-block; background: #673ab7; color: #fff; padding: 4px 12px;
+    border-radius: 20px; font-size: 11px; font-weight: 600; margin: 15px 0;
+}
+
+/* 11. MOBILE RESPONSIVE (Keep this at the very bottom) */
 @media screen and (max-width: 600px) {
     .single-line-title { font-size: 13px; letter-spacing: 0.5px; }
     .hero h1 { font-size: 2rem; }

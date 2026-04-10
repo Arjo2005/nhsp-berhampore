@@ -1,19 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academics | NHSP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <header><div class="nav-container"><div class="logo-brand-row"><img src="images/logo.png" class="nav-logo"><h1 class="single-line-title">ACADEMICS</h1></div><a href="index.html" class="btn white" style="padding: 5px 15px; font-size: 11px;">BACK HOME</a></div></header>
+<body style="background: #f4f7f6;">
+    <header>
+        <div class="nav-container">
+            <div class="logo-brand-row">
+                <img src="images/logo.png" class="nav-logo">
+                <h1 class="single-line-title">ACADEMIC RESOURCES</h1>
+            </div>
+            <a href="index.html" class="btn white" style="padding: 5px 15px; font-size: 11px;">BACK HOME</a>
+        </div>
+    </header>
 
     <main class="section-padding">
-        <h2 class="section-title">CHOOSE SUBJECT</h2>
-        <div class="grid">
-            <div class="card"><h3>ENGLISH</h3><p>Classes VI - X</p><a href="english.html" class="btn red">Enter</a></div>
-            <div class="card"><h3>BENGALI</h3><p>Classes VI - X</p><a href="bengali.html" class="btn red">Enter</a></div>
+        <h2 class="section-title">CHOOSE YOUR SUBJECT</h2>
+        <p style="margin-top: -30px; margin-bottom: 40px; color: #666;">Access premium notes for Classes VI - X</p>
+
+        <div class="grid" style="max-width: 900px; margin: 0 auto;">
+            <div class="card academic-card">
+                <div class="card-icon-circle"><i class="fas fa-book"></i></div>
+                <h3>ENGLISH</h3>
+                <p>Comprehensive Grammar & Literature Notes</p>
+                <p class="class-badge">Classes VI - X</p>
+                <button onclick="openAccessModal('english.html')" class="btn red">Enter Library</button>
+            </div>
+
+            <div class="card academic-card">
+                <div class="card-icon-circle"><i class="fas fa-pen-nib"></i></div>
+                <h3>BENGALI</h3>
+                <p>Subjective Analysis & Syllabus Guides</p>
+                <p class="class-badge">Classes VI - X</p>
+                <button onclick="openAccessModal('bengali.html')" class="btn red">Enter Library</button>
+            </div>
         </div>
     </main>
+
+    <div id="accessModal" class="enquiry-modal">
+        <div class="enquiry-content">
+            <span class="close-enquiry" onclick="closeAccessModal()">&times;</span>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <i class="fas fa-lock" style="font-size: 2rem; color: #00838f;"></i>
+                <h3 style="margin-top: 10px;">Student Access</h3>
+                <p style="font-size: 12px; color: #777;">Please provide your details to view our PDF notes.</p>
+            </div>
+            
+            <form id="accessForm">
+                <input type="text" id="accessName" placeholder="Your Name" required>
+                <input type="text" id="accessCity" placeholder="City / Village (e.g., Berhampore)" required>
+                <input type="tel" id="accessPhone" placeholder="Phone Number" required>
+                <button type="submit" class="btn red" style="width: 100%; margin: 15px 0 0 0;">ACCESS PDFS</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    let targetPage = "";
+    const MY_ACCESS_KEY = "d6bfdb59-6b66-4665-9421-221005b66a25"; // Put your Web3Forms key inside the quotes
+
+    function openAccessModal(page) {
+        targetPage = page;
+        document.getElementById("accessModal").style.display = "flex";
+    }
+
+    function closeAccessModal() {
+        document.getElementById("accessModal").style.display = "none";
+    }
+
+    document.getElementById('accessForm').onsubmit = function(e) {
+        e.preventDefault();
+        
+        // 1. Collect the Student's Data
+        const name = document.getElementById('accessName').value;
+        const city = document.getElementById('accessCity').value;
+        const phone = document.getElementById('accessPhone').value;
+        const subject = targetPage.replace('.html', '').toUpperCase();
+
+        // 2. Change the button text to show it's working
+        const submitBtn = e.target.querySelector('button');
+        submitBtn.innerText = "Please wait...";
+        submitBtn.disabled = true;
+
+        // 3. Send the data to Web3Forms
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                access_key: MY_ACCESS_KEY,
+                name: name,
+                city_address: city,
+                phone: phone,
+                subject_requested: subject,
+                from_name: "NHSP Academic Portal",
+                subject: `New Resource Request: ${name} from ${city}`
+            })
+        })
+        .then(async (response) => {
+            // 4. Once sent, immediately take them to the notes page
+            window.location.href = targetPage;
+        })
+        .catch(error => {
+            console.log(error);
+            // Even if there is a network error, don't block the student
+            window.location.href = targetPage;
+        });
+    };
+</script>
 </body>
 </html>

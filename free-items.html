@@ -1,19 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Items | NHSP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header><div class="nav-container"><div class="logo-brand-row"><img src="images/logo.png" class="nav-logo"><h1 class="single-line-title">FREE ITEMS</h1></div><a href="index.html" class="btn white" style="padding: 5px 15px; font-size: 11px;">HOME</a></div></header>
+<body style="background: #f4f7f6;">
+    
+    <header>
+        <div class="nav-container">
+            <div class="logo-brand-row">
+                <img src="images/logo.png" class="nav-logo">
+                <h1 class="single-line-title">FREE RESOURCES</h1>
+            </div>
+            <a href="index.html" class="btn white" style="padding: 5px 15px; font-size: 11px;">HOME</a>
+        </div>
+    </header>
 
     <main class="section-padding">
+        <h2 class="section-title">EXCLUSIVE FREEBIES</h2>
+        <p style="margin-top: -30px; margin-bottom: 40px; color: #666;">Boost your preparation with our curated materials</p>
+        
         <div class="grid">
-            <div class="card"><h3>MOCK TEST</h3><p>Class X English Quiz</p><button class="btn red">START</button></div>
-            <div class="card"><h3>SYLLABUS</h3><p>2026 School Boards</p><button class="btn red">DOWNLOAD</button></div>
-            <div class="card"><h3>FREE 3 MONTHS SPOKEN ENGLISH BASIC OURSE</h3></p><button class="btn red">ENROLL</button></div>
+            <div class="card academic-card">
+                <div class="card-icon-circle"><i class="fas fa-stopwatch"></i></div>
+                <h3>MOCK TEST</h3>
+                <p>Class X English Quiz</p>
+                <button class="btn btn-gradient" onclick="openFreeAccess('English Mock Test')">START</button>
+            </div>
+
+            <div class="card academic-card">
+                <div class="card-icon-circle"><i class="fas fa-file-download"></i></div>
+                <h3>SYLLABUS</h3>
+                <p>2026 School Boards</p>
+                <button class="btn btn-gradient" onclick="openFreeAccess('2026 Syllabus')">DOWNLOAD</button>
+            </div>
+
+            <div class="card academic-card">
+                <div class="card-icon-circle"><i class="fas fa-comments"></i></div>
+                <h3>SPOKEN ENGLISH</h3>
+                <p>Free 3 Months Basic Course</p>
+                <button class="btn btn-gradient" onclick="openFreeAccess('Spoken English Course')">ENROLL</button>
+            </div>
         </div>
     </main>
+
+    <div id="freeModal" class="enquiry-modal">
+        <div class="enquiry-content">
+            <span class="close-enquiry" onclick="closeFreeModal()">&times;</span>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <i class="fas fa-gift" style="font-size: 2rem; color: #ff4b91;"></i>
+                <h3 style="margin-top: 10px;">Claim Free Item</h3>
+                <p style="font-size: 12px; color: #777;">Enter details to unlock your resource.</p>
+            </div>
+            <form id="freeForm">
+                <input type="text" id="freeName" placeholder="Your Name" required>
+                <input type="text" id="freeCity" placeholder="City / Village (e.g. Berhampore)" required>
+                <input type="tel" id="freePhone" placeholder="Phone Number" required>
+                <button type="submit" class="btn btn-gradient" style="width: 100%; margin: 15px 0 0 0;">VERIFY & PROCEED</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="selectionModal" class="enquiry-modal">
+        <div class="enquiry-content">
+            <span class="close-enquiry" onclick="closeSelectionModal()">&times;</span>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <i class="fas fa-filter" style="font-size: 2rem; color: #00838f;"></i>
+                <h3 style="margin-top: 10px;">Choose Category</h3>
+                <p style="font-size: 12px; color: #777;">Select your class and subject to get the right PDF.</p>
+            </div>
+            <select id="selectClass" style="width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #ccc; font-family: 'Poppins';">
+                <option value="">Choose Class</option>
+                <option value="Class_6">Class VI</option>
+                <option value="Class_7">Class VII</option>
+                <option value="Class_8">Class VIII</option>
+                <option value="Class_9">Class IX</option>
+                <option value="Class_10">Class X</option>
+            </select>
+            <select id="selectSubject" style="width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #ccc; font-family: 'Poppins';">
+                <option value="">Choose Subject</option>
+                <option value="English">English</option>
+                <option value="Bengali">Bengali</option>
+            </select>
+            <button onclick="finalRedirect()" class="btn btn-gradient" style="width: 100%; margin: 15px 0 0 0;">GET PDF NOW</button>
+        </div>
+    </div>
+
+    <script>
+    let selectedItem = "";
+    // Your verified Web3Forms Key
+    const MY_ACCESS_KEY = "d6bfdb59-6b66-4665-9421-221005b66a25"; 
+
+    function openFreeAccess(item) {
+        selectedItem = item;
+        document.getElementById("freeModal").style.display = "flex";
+    }
+
+    function closeFreeModal() { document.getElementById("freeModal").style.display = "none"; }
+    function closeSelectionModal() { document.getElementById("selectionModal").style.display = "none"; }
+
+    document.getElementById('freeForm').onsubmit = function(e) {
+        e.preventDefault();
+        const submitBtn = e.target.querySelector('button');
+        
+        // 1. Processing state
+        submitBtn.innerText = "Verifying...";
+        submitBtn.disabled = true;
+
+        // 2. Send the Lead to your email
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+                access_key: MY_ACCESS_KEY,
+                name: document.getElementById('freeName').value,
+                city: document.getElementById('freeCity').value,
+                phone: document.getElementById('freePhone').value,
+                item_claimed: selectedItem,
+                subject: `NEW FREEBIE ENQUIRY: ${selectedItem}`
+            })
+        })
+        .then(response => {
+            // SUCCESS: Route based on item type
+            closeFreeModal();
+            if (selectedItem === '2026 Syllabus') {
+                document.getElementById("selectionModal").style.display = "flex";
+            } else if (selectedItem === 'English Mock Test') {
+                // External Premade Link
+                window.location.href = "https://newhorizonstudypoint-quiz.tiiny.site"; 
+            } else {
+                // Local Spoken English Page
+                window.location.href = "spoken-english.html";
+            }
+        })
+        .catch(error => {
+            // Error Handling: Still let them through if the network fails
+            console.log("Network Error:", error);
+            closeFreeModal();
+            if (selectedItem === '2026 Syllabus') {
+                document.getElementById("selectionModal").style.display = "flex";
+            } else {
+                window.location.href = "https://newhorizonstudypoint-quiz.tiiny.site";
+            }
+        })
+        .finally(() => {
+            submitBtn.innerText = "VERIFY & PROCEED";
+            submitBtn.disabled = false;
+        });
+    };
+
+    function finalRedirect() {
+        const uClass = document.getElementById('selectClass').value;
+        const uSubject = document.getElementById('selectSubject').value;
+
+        if(!uClass || !uSubject) {
+            alert("Please choose both Class and Subject!");
+            return;
+        }
+
+        // Logic to build file path: assets/Class_10_English_Syllabus.pdf
+        const fileName = `assets/${uClass}_${uSubject}_Syllabus.pdf`;
+        window.open(fileName, "_blank");
+        closeSelectionModal();
+    }
+    </script>
 </body>
 </html>

@@ -1,19 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admission | NHSP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission 2026 | NHSP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header><div class="nav-container"><div class="logo-brand-row"><img src="images/logo.png" class="nav-logo"><h1 class="single-line-title">ADMISSION 2026</h1></div><a href="index.html" class="btn white" style="padding: 5px 15px; font-size: 11px;">HOME</a></div></header>
+    <header>
+        <div class="nav-container">
+            <div class="logo-brand-row">
+                <img src="images/logo.png" class="nav-logo">
+                <h1 class="single-line-title">ADMISSION 2026</h1>
+            </div>
+            <a href="index.html" class="btn white" style="padding: 5px 15px; font-size: 11px;">HOME</a>
+        </div>
+    </header>
 
     <main class="section-padding">
-        <h2 class="section-title">JOIN OUR 2026 BATCH</h2>
-        <div class="card" style="max-width: 500px; margin: 0 auto;">
-            <p>ADMISSION FORMS ARE LIVE NOW FOR CLASSES 6- 10.</p>
-            <p>Please contact <strong>+91 76799 64503 | +91 8945986254</strong> for immediate registration.</p>
+        <div class="admission-hero">
+            <h2 class="section-title">JOIN OUR 2026 BATCH</h2>
+            <p class="tagline" style="color: #555;">Empowering Students from Classes VI to X</p>
+        </div>
+
+        <div class="grid" style="margin-top: 30px;">
+            <div class="card" style="text-align: left; border-top: 5px solid #673ab7;">
+                <h3><i class="fas fa-info-circle"></i> Admission Details</h3>
+                <ul style="list-style: none; margin-top: 15px;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #25d366;"></i> Forms are Live for Classes 6 - 10</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #25d366;"></i> English & Bengali Medium</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #25d366;"></i> Free 3-Month Spoken English</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-phone-alt" style="color: #00838f;"></i> +91 76799 64503 | +91 89459 86254</li>
+                </ul>
+            </div>
+
+            <div class="card" style="border-top: 5px solid #d32f2f;">
+                <h3><i class="fab fa-whatsapp"></i> Instant Registration</h3>
+                <p style="font-size: 12px; margin-bottom: 15px;">Fill this to send your details via WhatsApp-We will call you. Stay relaxed.</p>
+                <form id="admissionForm">
+                    <input type="text" id="stuName" placeholder="Full Student Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    <select id="stuClass" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Poppins';">
+                        <option value="">Select Class</option>
+                        <option value="Class VI">Class VI</option>
+                        <option value="Class VII">Class VII</option>
+                        <option value="Class VIII">Class VIII</option>
+                        <option value="Class IX">Class IX</option>
+                        <option value="Class X">Class X</option>
+                    </select>
+                    <input type="text" id="stuSchool" placeholder="School Name" required style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    <button type="submit" class="btn red" style="width: 100%; margin: 0;">SUBMIT TO WHATSAPP</button>
+                </form>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px;">
+            <h3 class="section-title" style="font-size: 1.5rem;">ADMISSION PROCESS</h3>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="card" style="padding: 15px;">
+                    <h4 style="color: #d32f2f;">01. Enquire</h4>
+                    <p style="font-size: 13px;">Submit the form or call us directly.</p>
+                </div>
+                <div class="card" style="padding: 15px;">
+                    <h4 style="color: #00838f;">02. Demo Class</h4>
+                    <p style="font-size: 13px;">Attend first 2 classes for free.</p>
+                </div>
+                <div class="card" style="padding: 15px;">
+                    <h4 style="color: #673ab7;">03. Confirm</h4>
+                    <p style="font-size: 13px;">Complete registration and start learning!</p>
+                </div>
+            </div>
         </div>
     </main>
+
+    <script>
+        document.getElementById('admissionForm').onsubmit = function(e) {
+            e.preventDefault();
+            const name = document.getElementById('stuName').value;
+            const uClass = document.getElementById('stuClass').value;
+            const school = document.getElementById('stuSchool').value;
+
+            const message = `*NEW ADMISSION ENQUIRY* %0A--------------------------%0A *Student Name:* ${name}%0A*Applying for:* ${uClass}%0A*School:* ${school} %0A--------------------------%0A Please contact me with further details!`;
+            
+            window.open(`https://wa.me/917679964503?text=${message}`, '_blank');
+        };
+    </script>
 </body>
 </html>
