@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <div class="notif-bar purple"><marquee>Admission Open for 2026 Batch | Free Basic Spoken English Class!</marquee></div>
+    <div class="notif-bar purple"><marquee>Admission Open for 2026 Batch | Free Basic 3 Months Spoken English Class!</marquee></div>
     <div class="notif-bar orange"><marquee class="bengali-font">নতুন ব্যাচে ভর্তি চলছে! সরাসরি ডেমো ক্লাসের সু-ব্যবস্থা (প্রথম দুটি ক্লাস)।</marquee></div>
 
     <header>
@@ -42,10 +42,62 @@
         </div>
     </section>
 
+    <section class="contact-info-section">
+        <h2 class="section-title">VISIT US</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Our Locations</h3>
+                <p>Berhampore, Hariharpara, Gangadhari</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Call Us</h3>
+                <p>+91 76799 64503</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="enquiry-float" onclick="toggleEnquiry()">
+        <i class="fas fa-paper-plane"></i> ENQUIRE NOW
+    </div>
+
+    <div id="enquiryModal" class="enquiry-modal">
+        <div class="enquiry-content">
+            <span class="close-enquiry" onclick="toggleEnquiry()">&times;</span>
+            <h3>Quick Enquiry</h3>
+            <form id="whatsappForm">
+                <input type="text" id="userName" placeholder="Your Name" required>
+                <input type="text" id="userClass" placeholder="Class (e.g. Class IX)" required>
+                <input type="text" id="userSchool" placeholder="School Name" required>
+                <input type="tel" id="userPhone" placeholder="Contact Number" required>
+                <button type="submit" class="btn red" style="width: 100%; margin: 10px 0;">Send to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
     <a href="https://wa.me/917679964503" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i><span>Chat Now</span></a>
 
     <script>
         function toggleMenu() { document.getElementById("navLinks").classList.toggle("active"); }
+        
+        function toggleEnquiry() {
+            const modal = document.getElementById("enquiryModal");
+            modal.style.display = (modal.style.display === "flex") ? "none" : "flex";
+        }
+
+        document.getElementById('whatsappForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('userName').value;
+            const uClass = document.getElementById('userClass').value;
+            const school = document.getElementById('userSchool').value;
+            const phone = document.getElementById('userPhone').value;
+
+            const message = `Hello NHSP! I want to enquire about classes.%0A%0A*Name:* ${name}%0A*Class:* ${uClass}%0A*School:* ${school}%0A*Contact:* ${phone}`;
+            
+            window.open(`https://wa.me/917679964503?text=${message}`, '_blank');
+        };
     </script>
 </body>
 </html>
